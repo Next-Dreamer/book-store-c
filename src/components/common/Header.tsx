@@ -2,57 +2,45 @@ import { styled } from 'styled-components';
 import ThemeSwitcher from '../header/ThemeSwitcher';
 import logo from '../../assets/images/logo.png';
 import { FaSignInAlt, FaRegUser}  from "react-icons/fa";
-
-const CATEGORY = [
-    {
-        id: null,
-        name: "전체",
-    },
-    {
-        id: 0,
-        name: "동화",
-    },
-    {
-        id: 1,
-        name: "소설",
-    },
-    {
-        id: 2,
-        name: "사회",
-    },
-];
+import { Link } from 'react-router';
+import { useEffect, useState } from 'react';
+import { Category } from '../../models/category.model';
+import { fetchCategory } from '../../api/category.api';
+import { useCategory } from '../../hooks/useCategory';
 
 function Header() {
+    const { category } = useCategory();
+
     return (
         <HeaderStyled>
             <h1 className="logo">
-                <img src={logo} alt="book store" />
+                <Link to="/">
+                    <img src={logo} alt="book store" />
+                </Link>
             </h1>
             <nav className="category">
                 <ul>
-                    {
-                        CATEGORY.map((item) => (
-                            <li key={item.id}>
-                                <a href={item.id === null ? "books" :
-                                    `/books?category_id=${item.id}`}>
-                                    {item.name}
-                                </a>
-                            </li>
-                        ))
-                    }
+                    {category.map((item) => (
+                        <li key={item.id}>
+                            <Link to={item.id === null ? "books" :
+                                `/books?category_id=${item.id}`}>
+                                {item.name}
+                            </Link>
+                        </li>
+                    ))}
                 </ul>
             </nav>
             <nav className="auth">
                 <ul>
                     <li>
-                        <a href="/login">
+                        <Link to="/login">
                         <FaSignInAlt />
-                        로그인</a>
+                        로그인</Link>
                     </li>
                     <li>
-                        <a href="/login">
+                        <Link to="/login">
                         <FaRegUser />
-                        회원가입</a>
+                        회원가입</Link>
                     </li>
                 </ul>
             </nav>
