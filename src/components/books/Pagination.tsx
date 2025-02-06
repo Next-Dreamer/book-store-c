@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { Pagination as IPagination } from "../../models/pagination.model";
-import { LIMIT } from "styled-components/dist/utils/createWarnTooManyClasses";
 import Button from "../common/Button";
 import { useSearchParams } from "react-router";
 import { QUERYSTRING } from "../../constants/querystring";
+import { LIMIT } from "../../constants/pagination";
 interface Props {
   pagination: IPagination;
 }
