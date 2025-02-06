@@ -1,4 +1,5 @@
 export interface Category {
-    id: number | null;
-    name: "동화"
+  id: number | null;
+  name: string;
+  isActive?: boolean;
 }
