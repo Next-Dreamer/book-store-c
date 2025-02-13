@@ -15,7 +15,17 @@ export interface Book {
   pubDate: string;
 }
 
-export interface BookDeatail extends Book {
+export interface BookDetail extends Book {
   categoryName: string;
   liked: boolean;
 }
+
+export interface BookReviewItem {
+  id: number;
+  userName: string;
+  createdAt: string;
+  content: string;
+  score: number;
+}
+
+export type BookReviewItemWrite = Pick<BookReviewItem, "content" | "score">;
