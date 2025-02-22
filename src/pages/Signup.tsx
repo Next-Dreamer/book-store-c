@@ -27,7 +27,7 @@ function Signup() {
   return (
     <>
       <Title size="large">회원가입</Title>
-      <SignupStyle>
+      <SignUpStyle>
         <form onSubmit={handleSubmit(onSubmit)}>
           <fieldset>
             <InputText
@@ -37,7 +37,6 @@ function Signup() {
               {...(errors.email && (
                 <p className="error-text">이메일을 입력해주세요.</p>
               ))}
-              // value={email} onChange={(e) => setEmail(e.target.value)}
             />
           </fieldset>
           <fieldset>
@@ -48,7 +47,6 @@ function Signup() {
               {...(errors.password && (
                 <p className="error-text">비밀번호를 입력해주세요.</p>
               ))}
-              // value={password} onChange={(e) => setPassword(e.target.value)}
             />
           </fieldset>
           <fieldset>
@@ -60,12 +58,12 @@ function Signup() {
             <Link to="/reset">비밀번호 초기화</Link>
           </div>
         </form>
-      </SignupStyle>
+      </SignUpStyle>
     </>
   );
 }
 
-export const SignupStyle = styled.div`
+export const SignUpStyle = styled.div`
   max-width: ${({ theme }) => theme.layout.width.small};
   margin: 80px auto;
 
